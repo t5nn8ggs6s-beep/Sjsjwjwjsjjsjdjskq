@@ -1,12 +1,10 @@
 FROM python:3.12-slim
 
-# Устанавливаем gcc и dev-зависимости
 RUN apt-get update && apt-get install -y build-essential python3-dev libssl-dev && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 COPY requirements.txt .
 
-# Обновляем pip и ставим зависимости
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
